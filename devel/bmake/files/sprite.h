@@ -1,4 +1,4 @@
-/*	$NetBSD: sprite.h,v 1.1.1.3 2009/09/18 20:55:31 joerg Exp $	*/
+/*	$NetBSD: sprite.h,v 1.1.1.4 2020/05/24 05:35:53 nia Exp $	*/
 
 /*
  * Copyright (c) 1988, 1989, 1990, 1993
@@ -78,8 +78,8 @@
  * Common constants and type declarations for Sprite.
  */
 
-#ifndef _SPRITE
-#define _SPRITE
+#ifndef MAKE_SPRITE_H
+#define MAKE_SPRITE_H
 
 
 /*
@@ -113,4 +113,4 @@ typedef int  ReturnStatus;
 #define	SUCCESS			0x00000000
 #define	FAILURE			0x00000001
 
-#endif /* _SPRITE */
+#endif /* MAKE_SPRITE_H */

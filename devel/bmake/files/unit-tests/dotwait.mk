@@ -1,4 +1,4 @@
-# $NetBSD: dotwait.mk,v 1.1.1.1 2015/05/19 21:36:45 joerg Exp $
+# $NetBSD: dotwait.mk,v 1.1.1.2 2020/05/24 05:35:53 nia Exp $
 
 THISMAKEFILE:= ${.PARSEDIR}/${.PARSEFILE}
 
@@ -11,7 +11,7 @@ PAUSE= sleep 1
 # Ignore "--- target ---" lines printed by parallel make.
 all:
 .for t in ${TESTS}
-	@${.MAKE} -f ${THISMAKEFILE} -j4 $t | grep -v "^--- "
+	@${.MAKE} -f ${THISMAKEFILE} -j4 $t 2>&1 | grep -v "^--- "
 .endfor
 
 #
