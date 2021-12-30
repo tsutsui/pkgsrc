@@ -1,6 +1,7 @@
 $NetBSD: distinfo,v 1.182 2021/10/26 11:05:59 nia Exp $
 
-BLAKE2s (mikutter-4.1.7.tar.gz) = a06d1361a17e366adc954d3941b5b179fdd9d46c65f89fcef432f47a5c5e4102
-SHA512 (mikutter-4.1.7.tar.gz) = bb7fa2ebb22484e6244c2ac6747b811d0ebc1eadca9997c9b272c6378149f63f01b9f1b5c30b36150b38997c973233b8f7b9c3f310c5e36e3ee23edec67eddc5
-Size (mikutter-4.1.7.tar.gz) = 2331574 bytes
+BLAKE2s (mikutter-5.0.0.tar.gz) = a2d6f3f3af668d5c6e0d34e345cd492513fcbb0ab1e122415a29472978c12d97
+SHA512 (mikutter-5.0.0.tar.gz) = 1bcd80a577a2aead3c42f5b1550456975c5040d0b6516341169a7893aa51a6e2e980b3d8fa39c2e343bcf02149ff57923c600499165efde295d71573f485d311
+Size (mikutter-5.0.0.tar.gz) = 2376131 bytes
+SHA1 (patch-core_config.rb) = a3167ba101f840983d9d27ea36252ec5e0b0435d
 SHA1 (patch-mikutter.rb) = f7018a6ab9505b757d161c7415d3e72399c9ad18
