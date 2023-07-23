@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	webp-pixbuf-loader-0.2.1
+DISTNAME=	webp-pixbuf-loader-0.2.4
 CATEGORIES=	graphics
 MASTER_SITES=	${MASTER_SITE_GITHUB:=aruiz/}
 GITHUB_PROJECT=	${DISTNAME:S/-${PKGVERSION_NOREV}//}
