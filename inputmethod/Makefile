@@ -129,6 +129,7 @@ SUBDIR+=	scim-tables
 SUBDIR+=	scim-tables-vietnamese-ext
 SUBDIR+=	scim-thai
 SUBDIR+=	scim-uim
+SUBDIR+=	scim-uim226
 SUBDIR+=	scim-unikey
 SUBDIR+=	sj3
 SUBDIR+=	sj3-client
