@@ -13,6 +13,7 @@ SUBDIR+=	a60
 SUBDIR+=	abcl
 SUBDIR+=	adoptopenjdk11-bin
 SUBDIR+=	algol68g
+SUBDIR+=	asl
 SUBDIR+=	asn1c
 SUBDIR+=	ats2
 SUBDIR+=	awka
