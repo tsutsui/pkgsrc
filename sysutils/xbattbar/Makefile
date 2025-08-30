@@ -2,7 +2,7 @@
 
 DISTNAME=	xbattbar_1.4.2
 PKGNAME=	${DISTNAME:S/_/-/}
-PKGREVISION=	11
+PKGREVISION=	12
 CATEGORIES=	sysutils x11
 #MASTER_SITES=	http://iplab.aist-nara.ac.jp/member/suguru/
 MASTER_SITES=	https://www.minix3.org/distfiles-backup/
