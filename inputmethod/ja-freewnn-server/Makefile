@@ -3,7 +3,7 @@
 .include "../../inputmethod/ja-freewnn-lib/Makefile.common"
 
 PKGNAME=	ja-FreeWnn-server-1.11alpha23
-PKGREVISION=	1
+PKGREVISION=	2
 
 COMMENT+=	(Japanese server)
 

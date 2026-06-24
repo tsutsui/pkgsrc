@@ -3,6 +3,7 @@
 .include "Makefile.common"
 
 PKGNAME=	ja-FreeWnn-lib-1.11alpha23
+PKGREVISION=	1
 
 COMMENT+=	(Japanese client library)
 
