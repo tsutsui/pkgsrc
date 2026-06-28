@@ -18,7 +18,6 @@ bin/dpbindic
 bin/dpromdic
 bin/dpxdic
 bin/forcpp
-bin/forsort
 bin/kpdic
 bin/lsdic
 bin/mergeword

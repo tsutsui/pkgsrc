@@ -4,7 +4,7 @@ Tweak include path to build without configure in unnecessary dirs
 
 --- lib/RKC/convert.c.orig	2004-04-26 21:48:37.000000000 +0000
 +++ lib/RKC/convert.c
-@@ -30,7 +30,7 @@ static char rcs_id[] = "$Id: convert.c,v
+@@ -27,7 +27,7 @@
  #include "rkcw.h"
  #include "canna/RK.h"
  #include "rkc.h"
