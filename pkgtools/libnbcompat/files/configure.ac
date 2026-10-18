@@ -148,7 +148,9 @@ AC_CHECK_FUNC(SHA1File, [:], [
 	AC_LIBOBJ(sha1hl)
 ])
 
-AC_CHECK_FUNC(SHA512_File, [:], [
+AC_CHECK_FUNC(SHA512_File)
+AS_IF([test "$ac_cv_header_sha2_h" != yes ||
+    test "$ac_cv_func_SHA512_File" != yes], [
        	AC_DEFINE(HAVE_NBCOMPAT_SHA2)
 	AH_TEMPLATE([HAVE_NBCOMPAT_SHA2], [
 		Define to 1 if the `SHA2*' functions are built into the
