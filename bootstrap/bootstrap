@@ -744,6 +744,7 @@ Minix)
 NetBSD)
 	root_group=wheel
 	machine_arch=`uname -p`
+	check_ssp=yes
 	;;
 OpenBSD)
 	root_group=wheel
@@ -1063,7 +1064,7 @@ PKG_DBDIR=$pkgdbdir; export PKG_DBDIR
 LOCALBASE=$prefix; export LOCALBASE
 VARBASE=$varbase; export VARBASE
 if [ x"$has_ssp" = x"no" ] && [ x"$check_ssp" = x"yes" ]; then
-_OPSYS_SUPPORTS_SSP=no; export _OPSYS_SUPPORTS_SSP
+PKGSRC_USE_SSP=no; export PKGSRC_USE_SSP
 fi
 
 # set up an example mk.conf file
@@ -1113,7 +1114,7 @@ fi
 echo "" >> ${TARGET_MKCONF}
 
 if [ x"$has_ssp" = x"no" ] && [ x"$check_ssp" = x"yes" ]; then
-	echo "_OPSYS_SUPPORTS_SSP=	no" >> ${TARGET_MKCONF}
+	echo "PKGSRC_USE_SSP=		no" >> ${TARGET_MKCONF}
 fi
 
 # enable unprivileged builds if not root

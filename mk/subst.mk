@@ -182,7 +182,7 @@ ${_SUBST_COOKIE.${class}}:
 		set +f;							\
 		found_any=no;						\
 		for file in $$pattern; do				\
-			case $$file in ([!A-Za-z0-9/]*) file="./$$file";; esac; \
+			case $$file in [!A-Za-z0-9/]*) file="./$$file";; esac; \
 			tmpfile="$$file.subst.sav";			\
 			[ -d "$$file" ] && continue;			\
 			[ -f "$$file" ] || {				\
@@ -218,9 +218,9 @@ ${_SUBST_COOKIE.${class}}:
 	done;								\
 	\
 	case $$noop_count in						\
-	('')	;;							\
-	(+)	${FAIL_MSG} "[subst.mk:${class}] The filename pattern \"$$noop_patterns\" has no effect.";; \
-	(*)	${FAIL_MSG} "[subst.mk:${class}] The filename patterns \"$$noop_patterns\" have no effect.";; \
+	'')	;;							\
+	+)	${FAIL_MSG} "[subst.mk:${class}] The filename pattern \"$$noop_patterns\" has no effect.";; \
+	*)	${FAIL_MSG} "[subst.mk:${class}] The filename patterns \"$$noop_patterns\" have no effect.";; \
 	esac;								\
 	${TOUCH} ${TOUCH_FLAGS} ${.TARGET}.tmp;				\
 	${MV} ${.TARGET}.tmp ${.TARGET}

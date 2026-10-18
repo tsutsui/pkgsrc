@@ -2867,7 +2867,13 @@ esac
 else case e in #(
   e)
 case "$OS" in
-NetBSD) filemon_h=no use_filemon=ktrace;;
+NetBSD)
+    filemon_h=no
+    case `uname -r` in
+    [0-5].*) use_filemon=no;;
+    *) use_filemon=ktrace;;
+    esac
+    ;;
 *)
     for d in "/usr/include/dev/filemon" "$prefix/include/dev/filemon" "$srcdir/../../sys/dev/filemon"
     do

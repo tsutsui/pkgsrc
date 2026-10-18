@@ -5626,11 +5626,9 @@ fi
 
 
 ac_fn_c_check_func "$LINENO" "SHA512_File" "ac_cv_func_SHA512_File"
-if test "x$ac_cv_func_SHA512_File" = xyes
+if test "$ac_cv_header_sha2_h" != yes ||
+    test "$ac_cv_func_SHA512_File" != yes
 then :
-  :
-else case e in #(
-  e)
        	printf "%s\n" "#define HAVE_NBCOMPAT_SHA2 1" >>confdefs.h
 
 
@@ -5646,8 +5644,6 @@ esac
  ;;
 esac
 
- ;;
-esac
 fi
 
 
