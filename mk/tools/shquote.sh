@@ -14,16 +14,16 @@ EOF`
 	esac
 
 	case $shquoted in
-	(*[!!%+,\-./0-9:=@A-Z_a-z]*|'')
+	*[!!%+,\-./0-9:=@A-Z_a-z]*|'')
 
 		# Move the single quote after the first equals sign, so that
 		# macro definitions look like -DMACRO='"value"' instead of
 		# the less common '-DMACRO="value"'.
 		case $shquoted in
-		(*=*)	lhs=${shquoted%%=*}
+		*=*)	lhs=${shquoted%%=*}
 			case $lhs in
-			(*[!!%+,\-./0-9:=@A-Z_a-z]*|'') ;;
-			(*)	shquoted="$lhs='${shquoted#*=}'"
+			*[!!%+,\-./0-9:=@A-Z_a-z]*|'') ;;
+			*)	shquoted="$lhs='${shquoted#*=}'"
 				return
 			esac
 		esac
