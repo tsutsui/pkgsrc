@@ -14,6 +14,7 @@ SHA1 (patch-src_cpus_cpu__sh.c) = 40c8989dcb2e17989a64b6ea4d19f85439fd6e69
 SHA1 (patch-src_cpus_cpu__sh__instr.c) = da365d33c9dbb29d755042bdef6caef549c68fde
 SHA1 (patch-src_cpus_generate__m88k__bcnd.c) = 23e5f5947d2e5538247524c518e8df1926a3bf12
 SHA1 (patch-src_devices_dev__clmpcc.c) = 5b7289f7fb89189ca755b09cafdf117f476aa927
+SHA1 (patch-src_devices_dev__lunafb.c) = 37535cf6752bccee6c957654328a782862754e68
 SHA1 (patch-src_devices_dev__m8820x.c) = 8b0004c7fb04ee34b22ce18a2f5e03f47573b1b0
 SHA1 (patch-src_devices_dev__mb89352.c) = 4421362aace9053636a250cb61254a5b6e18e9a2
 SHA1 (patch-src_devices_dev__osiop.c) = 839bf53411f6c87a78fd7aca9977d0da63c830af
