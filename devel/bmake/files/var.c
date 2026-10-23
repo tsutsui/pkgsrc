@@ -432,6 +432,8 @@ VarNew(FStr name, const char *value,
 static Substring
 CanonicalVarname(Substring name)
 {
+	if (Substring_Equals(name, "^"))
+		return Substring_InitStr(ALLSRC);
 
 	if (!(Substring_Length(name) > 0 && name.start[0] == '.'))
 		return name;
@@ -450,8 +452,6 @@ CanonicalVarname(Substring name)
 		return Substring_InitStr(PREFIX);
 	if (Substring_Equals(name, ".TARGET"))
 		return Substring_InitStr(TARGET);
-
-	/* GNU make has an additional alias $^ == ${.ALLSRC}. */
 
 	if (Substring_Equals(name, ".SHELL") && shellPath == NULL)
 		Shell_Init();
@@ -4317,7 +4317,7 @@ FindLocalLegacyVar(Substring varname, GNode *scope,
 		return NULL;
 	if (varname.start[1] != 'F' && varname.start[1] != 'D')
 		return NULL;
-	if (strchr("@%?*!<>", varname.start[0]) == NULL)
+	if (strchr("@%?*!<>^", varname.start[0]) == NULL)
 		return NULL;
 
 	v = VarFindSubstring(Substring_Init(varname.start, varname.start + 1),

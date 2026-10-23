@@ -403,6 +403,7 @@ TESTS+=		varmod-to-upper
 TESTS+=		varmod-undefined
 TESTS+=		varmod-unique
 TESTS+=		varname
+TESTS+=		varname-circumflex
 TESTS+=		varname-dollar
 TESTS+=		varname-dot-alltargets
 TESTS+=		varname-dot-curdir
