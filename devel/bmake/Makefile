@@ -1,6 +1,7 @@
 # $NetBSD: Makefile,v 1.87 2025/04/21 16:30:06 wiz Exp $
 
 PKGNAME=	bmake-20240909
+PKGREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://www.crufty.net/ftp/pub/sjg/
 
