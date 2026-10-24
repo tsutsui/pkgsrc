@@ -4,3 +4,4 @@ BLAKE2s (m4-1.4.21.tar.gz) = 99bf52b43b7ff479a4c99bca41186b5983448abd940054682a2
 SHA512 (m4-1.4.21.tar.gz) = 4d573245d31e14a1b2856abf7cd16f82ec01036956bb2c9ee09e6d9d3fcca518cf77d6864c915d4defa07771bf8503241017b37ce9027dcf4fafdd0fb20db582
 Size (m4-1.4.21.tar.gz) = 3558201 bytes
 SHA1 (patch-lib_sigsegv.c) = d773bc9690261b1749cceda8396536384f662665
+SHA1 (patch-tests_vma-iter.c) = 5b0771c1d6736afe1ddad85b960f98395bcb1fb7
