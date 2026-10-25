@@ -17,4 +17,8 @@ USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
 USE_TOOLS+=		gmake
 
+.include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "NetBSD" && ${OPSYS_VERSION} >= 100000
 CFLAGS.NetBSD+=	-DHAVE_REALLOCARRAY
+.endif
