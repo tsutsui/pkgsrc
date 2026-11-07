@@ -1,0 +1,21 @@
+$NetBSD$
+
+- Allow override disabling LTO for gkrust build to avoid out of memory errors
+  on 32 bit hosts.
+
+--- toolkit/library/rust/moz.build.orig	2026-11-05 18:06:35.387190017 +0000
++++ toolkit/library/rust/moz.build
+@@ -4,7 +4,12 @@
+ 
+ include("gkrust-features.mozbuild")
+ 
+-RustLibrary("gkrust", gkrust_features, is_gkrust=True)
++RustLibrary(
++    "gkrust",
++    gkrust_features,
++    is_gkrust=True,
++    lto=not CONFIG["MOZ_GKRUST_NO_LTO"],
++)
+ 
+ for feature in gkrust_features:
+     # We don't want to enable refcount logging during rusttests, since the

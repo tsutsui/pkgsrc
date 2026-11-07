@@ -2,10 +2,12 @@ $NetBSD: patch-build_moz.configure_rust.configure,v 1.8 2020/12/17 09:53:15 ryoo
 
 * Do not match rumprun toolchain for NetBSD,
   narrowed should be one not two.
+* Allow to override codegen-number and disabling lto on gkrust to avold
+  out of memory errors on 32 bit hosts.
 
---- build/moz.configure/rust.configure.orig	2020-12-03 23:12:39.000000000 +0000
+--- build/moz.configure/rust.configure.orig	2026-11-02 17:55:17.000000000 +0000
 +++ build/moz.configure/rust.configure
-@@ -371,6 +371,7 @@ def detect_rustc_target(
+@@ -477,6 +477,7 @@ def detect_rustc_target(host_or_target, 
              for c in candidates
              if c.target.raw_os == host_or_target.raw_os
              and c.target.raw_cpu == host_or_target.raw_cpu
@@ -13,3 +15,37 @@ $NetBSD: patch-build_moz.configure_rust.configure,v 1.8 2020/12/17 09:53:15 ryoo
          ]
          if len(narrowed) == 1:
              return narrowed[0].rust_target
+@@ -1196,7 +1197,32 @@ set_config("MOZ_CARGO_PROGRAM_LDFLAGS_FI
+ # If this is a release build we want rustc to generate one codegen unit per
+ # crate. This results in better optimization and less code duplication at the
+ # cost of longer compile times.
+-set_config("MOZ_RUSTFLAGS_CODEGEN", ["-C", "codegen-units=1"], when=~developer_options)
++#
++# On some 32 bit hosts this requires much memories that cannot be handled
++# on 32 bit address space, so allow overriding codegen-units by an environment
++# variable.
++option(
++    env="RUSTC_CODEGEN_UNITS",
++    default="1",
++    nargs=1,
++    help="Rust compiler code generation units (-C codegen-units=%s)",
++)
++
++@depends("RUSTC_CODEGEN_UNITS")
++def rustc_codegen_flags(value):
++    return ["-C", "codegen-units=" + value[0]]
++
++
++set_config("MOZ_RUSTFLAGS_CODEGEN", rustc_codegen_flags, when=~developer_options)
++
++# On some 32 bit hosts, LTO on gkrust could also cause out of memory error
++# so allow disabling LTO on gkrust by an environment variable.
++option(env="MOZ_GKRUST_NO_LTO", help="Disable LTO for gkrust")
++
++set_config(
++    "MOZ_GKRUST_NO_LTO",
++    depends("MOZ_GKRUST_NO_LTO")(lambda value: bool(value)),
++)
+ 
+ # The rust wasi target defaults to statically link the wasi crt, but when we
+ # build static libraries from rust and link them with C/C++ code, we also link

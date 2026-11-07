@@ -71,6 +71,16 @@ CFLAGS.SunOS+=	-D_POSIX_PTHREAD_SEMANTICS
 # Do not use uselocale() in third_party/pipewire.
 CFLAGS.NetBSD+=	-D__LOCALE_C_ONLY
 
+# Disable some default optiomization on 32 bit hosts to avoid
+# out of memory errors.
+# XXX tested only on NetBSD/i386 11.1
+.include "../../mk/bsd.prefs.mk"
+.if ${MACHINE_PLATFORM:MNetBSD-*-i386}
+CONFIGURE_ENV+=	RUSTC_CODEGEN_UNITS=2
+CONFIGURE_ENV+=	MOZ_GKRUST_NO_LTO=1
+#MAKE_ENV+=	CARGO_PROFILE_RELEASE_OPT_LEVEL=1
+.endif
+
 LDFLAGS+=		${COMPILER_RPATH_FLAG}${PREFIX}/lib/${PKGBASE}
 LDFLAGS+=		${COMPILER_RPATH_FLAG}${PREFIX}/lib
 LDFLAGS.DragonFly+=	-lplc4 -lnspr4
